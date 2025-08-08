@@ -1,16 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const hasMutation = require('./index');
+require('dotenv').config();
+
 
 const app = express();
 app.use(express.json());
 
-// 🔹 Conectar a MongoDB
-mongoose.connect('mongodb+srv://usuario1:hola1@cluster0.wj1lim5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+// 🔹 Conectar a MongoDB usando variable de entorno
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => console.log("MongoDB conectado"))
-  .catch(err => console.error("Error de conexión:", err));
+})
+.then(() => console.log("✅ MongoDB conectado"))
+.catch(err => console.error("❌ Error de conexión:", err));
 
 // 🔹 Modelo ADN
 const adnSchema = new mongoose.Schema({
@@ -64,4 +67,4 @@ app.get('/list', async (req, res) => {
 
 // Puerto
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Servidor corriendo en puerto ${PORT}`));
