@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Dna {
-  private apiUrl = 'https://dna-mutation-detector-83aa.vercel.app';
+  private apiUrl = 'https://dna-mutation-detector-1.onrender.com';
 
   constructor(private http: HttpClient) {}
 
