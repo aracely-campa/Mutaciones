@@ -58,10 +58,14 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dna-mutation-front:build:production"
+              "buildTarget": "dna-mutation-front:build:production",
+              "host": "0.0.0.0",
+              "port": 51890
             },
             "development": {
-              "buildTarget": "dna-mutation-front:build:development"
+              "buildTarget": "dna-mutation-front:build:development",
+              "host": "0.0.0.0",
+              "port": 51890
             }
           },
           "defaultConfiguration": "development"

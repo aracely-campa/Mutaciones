@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Dna } from './dna';
+import { dna } from './dna';
 
 describe('Dna', () => {
-  let service: Dna;
+  let service: dna;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Dna);
+    service = TestBed.inject(dna);
   });
 
   it('should be created', () => {

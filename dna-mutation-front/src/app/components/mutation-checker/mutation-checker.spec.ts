@@ -1,14 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MutationChecker } from './mutation-checker';
 
-describe('MutationChecker', () => {
+describe('MutationCheckerComponent', () => {
   let component: MutationChecker;
   let fixture: ComponentFixture<MutationChecker>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MutationChecker]
+      declarations: [MutationChecker]
     })
     .compileComponents();
 

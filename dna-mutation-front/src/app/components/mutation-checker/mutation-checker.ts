@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
-import { Dna} from '../../services/dna';
+import { dna } from '../../services/dna';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-mutation-checker',
+  standalone: true,
   templateUrl: './mutation-checker.html',
   styleUrls: ['./mutation-checker.css'],
   imports: [CommonModule, FormsModule, DecimalPipe]
 })
-export class MutationCheckerComponent {
+export class MutationChecker {
   dnaInput: string = '';
   result: string = '';
   stats: any;
 
-  constructor(private dnaService: Dna) {}
+  constructor(private dnaService: dna) {}
 
   checkMutation() {
     const dnaArray = this.dnaInput
