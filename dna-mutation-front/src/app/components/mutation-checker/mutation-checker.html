@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Detector de Mutaciones</h2>
+
+  <textarea
+    [(ngModel)]="dnaInput"
+    placeholder="Ingresa cada cadena de ADN en una nueva línea"
+    rows="6"
+  ></textarea>
+
+  <button (click)="checkMutation()">Verificar Mutación</button>
+  <button (click)="loadStats()">Ver Estadísticas</button>
+
+  <p *ngIf="result">{{ result }}</p>
+
+  <div *ngIf="stats">
+    <p>🔬 Mutaciones detectadas: {{ stats.count_mutations }}</p>
+    <p>🧪 Sin mutaciones: {{ stats.count_no_mutation }}</p>
+    <p>📊 Ratio: {{ stats.ratio | number:'1.2-2' }}</p>
+  </div>
+</div>
