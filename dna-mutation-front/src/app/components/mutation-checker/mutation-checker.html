@@ -1,33 +1,37 @@
 <div class="container">
-  <header>
-    <h2>🧬 Detector de Mutaciones</h2>
-    <p class="subtitle">Analiza cadenas de ADN y detecta mutaciones genéticas</p>
+  <header class="app-header">
+    <h1>🧬 Detector de Mutaciones</h1>
+    <p class="tagline">Analiza secuencias de ADN y detecta mutaciones al instante</p>
   </header>
 
-  <section class="form-section">
-    <label for="dnaInput" class="sr-only">Cadenas de ADN</label>
-    <textarea
-      id="dnaInput"
-      [(ngModel)]="dnaInput"
-      placeholder="Ingresa cada cadena de ADN en una nueva línea"
-      rows="6"
-    ></textarea>
+  <main class="app-body">
+    <div class="input-area">
+      <textarea
+        id="dnaInput"
+        [(ngModel)]="dnaInput"
+        placeholder="Escribe cada cadena de ADN en una línea diferente..."
+        rows="6"
+      ></textarea>
+    </div>
 
     <div class="button-group">
-      <button (click)="checkMutation()">✅ Verificar Mutación</button>
-      <button (click)="loadStats()">📊 Ver Estadísticas</button>
+      <button class="btn-primary" (click)="checkMutation()">Verificar 🔍</button>
+      <button class="btn-secondary" (click)="loadStats()">Estadísticas 📊</button>
     </div>
-  </section>
 
-  <section class="result-section" *ngIf="result">
-    <p [ngClass]="{ 'success': result.includes('Mutación'), 'error': result.includes('No') }">
-      {{ result }}
-    </p>
-  </section>
+    <div class="result-card" *ngIf="result">
+      <span [ngClass]="{ 'result-success': result.includes('Mutación'), 'result-error': result.includes('No') }">
+        {{ result }}
+      </span>
+    </div>
 
-  <section class="stats" *ngIf="stats">
-    <p>🔬 Mutaciones detectadas: <strong>{{ stats.count_mutations }}</strong></p>
-    <p>🧪 Sin mutaciones: <strong>{{ stats.count_no_mutation }}</strong></p>
-    <p>📊 Ratio: <strong>{{ stats.ratio | number:'1.2-2' }}</strong></p>
-  </section>
+    <div class="stats-card" *ngIf="stats">
+      <h3>📈 Resumen</h3>
+      <ul>
+        <li>🔬 Mutaciones detectadas: <strong>{{ stats.count_mutations }}</strong></li>
+        <li>🧪 Sin mutaciones: <strong>{{ stats.count_no_mutation }}</strong></li>
+        <li>📊 Ratio: <strong>{{ stats.ratio | number:'1.2-2' }}</strong></li>
+      </ul>
+    </div>
+  </main>
 </div>
