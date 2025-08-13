@@ -2,7 +2,7 @@
   max-width: 500px;
   margin: 50px auto;
   padding: 20px;
-  background: #ffffff;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -10,8 +10,9 @@
 }
 
 h2 {
-  color: #4a4a4a;
+  color: #333;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 textarea {
@@ -22,16 +23,19 @@ textarea {
   border-radius: 8px;
   resize: none;
   font-size: 14px;
-  transition: border-color 0.3s;
+  background: #f0fdf4; /* Verde pastel */
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 textarea:focus {
   outline: none;
   border-color: #4CAF50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+  background: #ffffff;
 }
 
 button {
-  background: #4CAF50;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
   color: white;
   border: none;
   padding: 10px 16px;
@@ -39,11 +43,12 @@ button {
   border-radius: 8px;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.1s;
+  transition: background-position 0.4s, transform 0.1s;
+  background-size: 200% 200%;
 }
 
 button:hover {
-  background: #45a049;
+  background-position: right center;
 }
 
 button:active {
@@ -67,9 +72,10 @@ p.error {
 
 div.stats {
   margin-top: 15px;
-  background: #f4f4f4;
+  background: #e3f2fd; /* Azul pastel */
   padding: 10px;
   border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 div.stats p {

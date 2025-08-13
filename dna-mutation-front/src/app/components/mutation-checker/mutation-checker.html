@@ -1,20 +1,33 @@
 <div class="container">
-  <h2>Detector de Mutaciones</h2>
+  <header>
+    <h2>🧬 Detector de Mutaciones</h2>
+    <p class="subtitle">Analiza cadenas de ADN y detecta mutaciones genéticas</p>
+  </header>
 
-  <textarea
-    [(ngModel)]="dnaInput"
-    placeholder="Ingresa cada cadena de ADN en una nueva línea"
-    rows="6"
-  ></textarea>
+  <section class="form-section">
+    <label for="dnaInput" class="sr-only">Cadenas de ADN</label>
+    <textarea
+      id="dnaInput"
+      [(ngModel)]="dnaInput"
+      placeholder="Ingresa cada cadena de ADN en una nueva línea"
+      rows="6"
+    ></textarea>
 
-  <button (click)="checkMutation()">Verificar Mutación</button>
-  <button (click)="loadStats()">Ver Estadísticas</button>
+    <div class="button-group">
+      <button (click)="checkMutation()">✅ Verificar Mutación</button>
+      <button (click)="loadStats()">📊 Ver Estadísticas</button>
+    </div>
+  </section>
 
-  <p *ngIf="result">{{ result }}</p>
+  <section class="result-section" *ngIf="result">
+    <p [ngClass]="{ 'success': result.includes('Mutación'), 'error': result.includes('No') }">
+      {{ result }}
+    </p>
+  </section>
 
-  <div *ngIf="stats">
-    <p>🔬 Mutaciones detectadas: {{ stats.count_mutations }}</p>
-    <p>🧪 Sin mutaciones: {{ stats.count_no_mutation }}</p>
-    <p>📊 Ratio: {{ stats.ratio | number:'1.2-2' }}</p>
-  </div>
+  <section class="stats" *ngIf="stats">
+    <p>🔬 Mutaciones detectadas: <strong>{{ stats.count_mutations }}</strong></p>
+    <p>🧪 Sin mutaciones: <strong>{{ stats.count_no_mutation }}</strong></p>
+    <p>📊 Ratio: <strong>{{ stats.ratio | number:'1.2-2' }}</strong></p>
+  </section>
 </div>
